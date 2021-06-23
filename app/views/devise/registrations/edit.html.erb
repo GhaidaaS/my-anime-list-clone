@@ -1,0 +1,60 @@
+<section>
+  <div class="page-header section-height-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+              <h4 class="font-weight-bolder"><%= t('.title', resource: resource_name.to_s.humanize) %></h4>
+            </div>
+            <div class="card-body">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                <%= bootstrap_devise_error_messages! %>
+                <div class="mb-3 form-group">
+                  <%= f.label :first_name %>
+                  <%= f.text_field :first_name, autofocus: true, autocomplete: 'first_name', class: 'form-control form-control-lg', placeholder: "First Name" %>
+                </div>
+                <div class="mb-3 form-group">
+                  <%= f.label :last_name %>
+                  <%= f.text_field :last_name, autofocus: true, autocomplete: 'last_name', class: 'form-control form-control-lg', placeholder: "Last Name" %>
+                </div>
+                <div class="mb-3 form-group">
+                  <%= f.label :email %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control form-control-lg', placeholder: "Email" %>
+                </div>
+                <div class="mb-3 form-group">
+                  <%= f.label :password %>
+                  <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control form-control-lg', placeholder: "Password" %>
+                  <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
+                </div>
+                <div class="mb-3 form-group">
+                  <%= f.label :password_confirmation %>
+                  <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control form-control-lg', placeholder: "Password Confirmation" %>
+                </div>
+                <div class="mb-3 form-group">
+                  <%= f.label :current_password %>
+                  <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control form-control-lg', placeholder: "Password Confirmation" %>
+                  <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
+                </div>
+                <div class="text-center form-group">
+                  <%= f.submit t('.update'), class: 'btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0' %>
+                </div>
+              <% end %>
+            </div>
+            <p><%= t('.unhappy') %>? <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %>.</p>
+            <div class="card-footer text-center pt-0 px-lg-2 px-1">
+              <p class="mb-4 text-sm mx-auto">
+                Don't have an account?
+                <a href="javascript:;" class="text-primary text-gradient font-weight-bold"><%= link_to t('.back'), :back %></a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
+          <div class="position-absolute h-100 m-3 px-7 border-radius-lg w-90 d-flex flex-column justify-content-center" style="background-image: url('https://i.pinimg.com/564x/62/5c/2b/625c2b57e725d3e7930967feb988dcc2.jpg'); background-size: cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

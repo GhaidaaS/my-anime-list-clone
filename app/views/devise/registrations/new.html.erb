@@ -1,0 +1,56 @@
+<section>
+  <div class="page-header section-height-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+              <h4 class="font-weight-bolder"><%= t('.sign_up') %></h4>
+            </div>
+            <div class="card-body">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= bootstrap_devise_error_messages! %>
+                <div class="mb-3 form-group">
+                  <%= f.label :first_name %>
+                  <%= f.text_field :first_name, autofocus: true, autocomplete: 'first_name', class: 'form-control form-control-lg', placeholder: "First Name" %>
+                </div>
+                <div class="mb-3 form-group">
+                  <%= f.label :last_name %>
+                  <%= f.text_field :last_name, autofocus: true, autocomplete: 'last_name', class: 'form-control form-control-lg', placeholder: "Last Name" %>
+                </div>
+                <div class="mb-3 form-group">
+                  <%= f.label :email %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control form-control-lg', placeholder: "Email" %>
+                </div>
+                <div class="mb-3 form-group">
+                  <%= f.label :password %>
+                  <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control form-control-lg', placeholder: "Password" %>
+                  <% if @minimum_password_length %>
+                    <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
+                  <% end %>
+                </div>
+                <div class="mb-3 form-group">
+                  <%= f.label :password_confirmation %>
+                  <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control form-control-lg', placeholder: "Password Confirmation" %>
+                </div>
+                <div class="text-center form-group">
+                  <%= f.submit  t('.sign_up'), class: 'btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0' %>
+                </div>
+              <% end %>
+            </div>
+            <div class="card-footer text-center pt-0 px-lg-2 px-1">
+              <p class="mb-4 text-sm mx-auto">
+                Don't have an account?
+                <a href="javascript:;" class="text-primary text-gradient font-weight-bold"><%= render 'devise/shared/links' %></a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
+          <div class="position-absolute h-100 m-3 px-7 border-radius-lg w-90 d-flex flex-column justify-content-center" style="background-image: url('https://i.imgur.com/w0UMwys.jpeg'); background-size: cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

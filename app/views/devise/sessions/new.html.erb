@@ -1,0 +1,47 @@
+<section>
+  <div class="page-header section-height-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+              <h4 class="font-weight-bolder"><%= t('.sign_in') %></h4>
+              <p class="mb-0">Enter your email and password to sign in</p>
+            </div>
+            <div class="card-body">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="mb-3 form-group">
+                  <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control form-control-lg', placeholder: "Email" %>
+                </div>
+                <div class="mb-3 form-group">
+                  <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control form-control-lg', placeholder: "Password" %>
+                </div>
+                <% if devise_mapping.rememberable? %>
+                  <div class="form-check form-switch form-group">
+                    <%= f.check_box :remember_me, class: 'form-check-input', id:"rememberMe"%>
+                    <%= f.label :remember_me, class: 'form-check-label' do %>
+                      <%= resource.class.human_attribute_name('remember_me') %>
+                    <% end %>
+                  </div>
+                <% end %>
+                <div class="text-center form-group">
+                  <%= f.submit  t('.sign_in'), class: 'btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0' %>
+                </div>
+              <% end %>
+            </div>
+            <div class="card-footer text-center pt-0 px-lg-2 px-1">
+              <p class="mb-4 text-sm mx-auto">
+                Don't have an account?
+                <a href="javascript:;" class="text-primary text-gradient font-weight-bold"><%= render 'devise/shared/links' %></a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
+          <div class="position-relative h-100 m-3 px-7 w-90 border-radius-lg d-flex flex-column justify-content-center" style="background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/97b63328-aea3-4c56-b01d-461e272ecef8/dddvgjk-cdcf4aba-be17-47c1-8844-bee592dc1e4f.jpg/v1/fill/w_1280,h_1979,q_75,strp/demon_slayer_fanart_by_kibble3_dddvgjk-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTk3OSIsInBhdGgiOiJcL2ZcLzk3YjYzMzI4LWFlYTMtNGM1Ni1iMDFkLTQ2MWUyNzJlY2VmOFwvZGRkdmdqay1jZGNmNGFiYS1iZTE3LTQ3YzEtODg0NC1iZWU1OTJkYzFlNGYuanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.VfhqqbmYbYoH9V2vx_y04W4YEvYNgeIw9RXlICLHHkw'); background-size: cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
