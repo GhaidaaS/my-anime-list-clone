@@ -1,2 +1,86 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<header class="header-2">
+  <div class="page-header section-height-75 relative" style="background-image: url('https://cdn.vox-cdn.com/thumbor/J9nxDw6BrIImQacZtH3-Mlo6JHU=/0x0:2040x1360/2820x1586/filters:focal(857x517:1183x843):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/65032468/acastro_190807_3592_best_anime_2019_0001__1_.9.jpg')">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 text-center mx-auto">
+          <h1 class="text-t pt-3 mt-n5">Your Anime List</h1>
+          <p class="lead text-t mt-3">Add complited anime  and manga  to your list. <br /> Add friends and Check their list. </p>
+        </div>
+      </div>
+    </div>
+    <div class="position-absolute w-100 z-index-1 bottom-0">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="moving-waves">
+          <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
+          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
+          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
+          <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
+          <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
+          <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+<section class="pt-3 pb-4" id="count-stats">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 z-index-2 border-radius-xl mt-n10 mx-auto py-3 blur shadow-blur">
+        <div class="row">
+          <div class="col-md-4 position-relative">
+            <div class="p-3 text-center">
+              <h1 class="text-gradient text-primary">0</h1>
+              <h5 class="mt-3">Animes</h5>
+              <p class="text-sm">Number of animes you have on your list.</p>
+            </div>
+            <hr class="vertical dark">
+          </div>
+          <div class="col-md-4 position-relative">
+            <div class="p-3 text-center">
+              <h1 class="text-gradient text-primary"> 0 </h1>
+              <h5 class="mt-3">Mangas</h5>
+              <p class="text-sm">Number of mangas you have on your list.</p>
+            </div>
+            <hr class="vertical dark">
+          </div>
+          <div class="col-md-4">
+            <div class="p-3 text-center">
+              <h1 class="text-gradient text-primary">0</h1>
+              <h5 class="mt-3">Friends</h5>
+              <p class="text-sm">Number of friends you have on your list.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-3">
+  <div class="container">
+    <form class="row" method='get' action='/home/search'>
+      <div class="col-lg-12">
+        <h4 class="mb-5">Search</h4>
+      </div>
+      <div class="form-group col-lg-4">
+        <label for="kind">What do you want to search?</label>
+        <select name='kind' class="form-control" id="kind">
+          <option>anime</option>
+          <option>manga</option>
+          <option>person</option>
+        </select>
+      </div>
+      <div class="form-group col-lg-6" style="align-self: flex-end;">
+        <input class="form-control" name='name' type="search" value='' placeholder="Name ..." id="name">
+      </div>
+      <div class="form-group col-lg-2"style="align-self: flex-end; ">
+        <button type="button" class="btn btn-outline-primary btn-m w-100" style= "margin: 0 ">Search</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<%= render 'home/result' %>
