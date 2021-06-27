@@ -10,7 +10,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_23_164147) do
+ActiveRecord::Schema.define(version: 2021_06_27_203854) do
+
+  create_table "anime_genres", force: :cascade do |t|
+    t.integer "anime_id", null: false
+    t.integer "genre_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["anime_id"], name: "index_anime_genres_on_anime_id"
+    t.index ["genre_id"], name: "index_anime_genres_on_genre_id"
+  end
+
+  create_table "animes", force: :cascade do |t|
+    t.integer "mal_id"
+    t.string "title"
+    t.string "url"
+    t.string "image_url"
+    t.string "synopsis"
+    t.integer "episodes"
+    t.string "score"
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.integer "mal_id"
+    t.integer "show_type"
+    t.string "name"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "manga_genres", force: :cascade do |t|
+    t.integer "manga_id", null: false
+    t.integer "genre_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_id"], name: "index_manga_genres_on_genre_id"
+    t.index ["manga_id"], name: "index_manga_genres_on_manga_id"
+  end
+
+  create_table "mangas", force: :cascade do |t|
+    t.integer "mal_id"
+    t.string "title"
+    t.string "url"
+    t.string "image_url"
+    t.string "synopsis"
+    t.integer "volumes"
+    t.integer "chapters"
+    t.string "score"
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name", default: "", null: false
@@ -26,4 +80,8 @@ ActiveRecord::Schema.define(version: 2021_06_23_164147) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "anime_genres", "animes"
+  add_foreign_key "anime_genres", "genres"
+  add_foreign_key "manga_genres", "genres"
+  add_foreign_key "manga_genres", "mangas"
 end
